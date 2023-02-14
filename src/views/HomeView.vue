@@ -18,8 +18,8 @@ import dogCard from "../components/dogCard.vue";
 import filterMenu from "../components/filterMenu.vue";
 import mainLayout from "../components/mainLayout.vue";
 
-let store = useBreedStore();
-let breeds = store.breedsData;
+// let store = useBreedStore();
+// let breeds = store.breedsData;
 // console.log(breeds);
 
 defineComponent({

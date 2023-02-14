@@ -1,19 +1,26 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
 let URL = "https://api.thedogapi.com/v1/breeds";
 
-export const useBreedStore = defineStore("Breeds", {
-  state: () => ({ breedsData: [] }),
-  actions: {
-    async getBreedsArray() {
-      try {
-        const response = await fetch("https://api.thedogapi.com/v1/breeds");
-        const data = await response.json();
-        // this.breedsData = data;
-        return data;
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  },
+export const useBreedStore = defineStore("breeds", () => {
+  let breedsData = ref([]);
+
+  function getBreedsArray() {
+    fetch(URL)
+      .then((response) => response.json())
+      .then((data) => {
+        breedsData.value = data;
+        console.log("Data Fetched");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  onBeforeMount(getBreedsArray);
+  // onMounted(getBreedsArray);
+
+  return {
+    breedsData,
+    getBreedsArray,
+  };
 });

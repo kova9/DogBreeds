@@ -17,7 +17,7 @@
 <script setup>
 import { useBreedStore } from "../stores/counter";
 
-defineProps({
+let props = defineProps({
   breed: Object,
 });
 </script>
