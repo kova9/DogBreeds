@@ -2,10 +2,10 @@
   <div class="bg-white md:container md:mx-auto w-10">
     <ul class="flex flex-wrap p-2 justify-center bg-black text-white">
       <li class="p-2">
-        <a href=""> Filter </a>
+        <a href=""> Breed Search </a>
       </li>
       <li class="p-2">
-        <a href=""> Search </a>
+        <a href=""> Favorites </a>
       </li>
     </ul>
 
@@ -39,7 +39,6 @@
 <script setup>
 import dogCard from "../components/dogCard.vue";
 import { ref, onMounted, computed } from "vue";
-import searchBox from "./searchBox.vue";
 
 let URL = "https://api.thedogapi.com/v1/breeds";
 const searchValue = ref("");
@@ -61,13 +60,12 @@ onMounted(() => {
   getBreedsArray();
 });
 
-const breedsArray = computed({
-  get() {
-    return breedsData.value;
-  },
-  set(val) {
-    breedsData.value = breedsData.value.filter((breed) => breed.name == search);
-  },
-});
+const breedsArray = computed(() =>
+  searchValue.value
+    ? breedsData.value.filter((breed) =>
+        breed.name.toLowerCase().includes(searchValue.value.toLowerCase())
+      )
+    : breedsData.value
+);
 let isVisible = ref(false);
 </script>
