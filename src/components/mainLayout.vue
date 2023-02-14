@@ -2,10 +2,12 @@
   <div class="bg-white container mx-auto max-w-4xl max-h-4xl">
     <ul class="flex flex-wrap p-2 justify-center bg-black text-white">
       <li class="p-2">
-        <RouterLink to="/"> Breed Search </RouterLink>
+        <RouterLink to="/" @click="favPageTrigger">Breed Search</RouterLink>
       </li>
       <li class="p-2">
-        <RouterLink to="/favorites"> Favorites </RouterLink>
+        <RouterLink to="/favorites" @click="favPageTrigger"
+          >Favorites</RouterLink
+        >
       </li>
     </ul>
 
@@ -40,10 +42,13 @@
 import dogCard from "../components/dogCard.vue";
 import { ref, onMounted, computed } from "vue";
 import { RouterLink } from "vue-router";
+import { useBreedStore } from "../stores/counter";
 
 let URL = "https://api.thedogapi.com/v1/breeds";
 const searchValue = ref("");
 let breedsData = ref([]);
+let breedsStore = useBreedStore();
+let favBreeds = breedsStore.favBreeds.value;
 
 // Fetching API Data
 function getBreedsArray() {
@@ -51,6 +56,8 @@ function getBreedsArray() {
     .then((response) => response.json())
     .then((data) => {
       breedsData.value = data;
+      breedsData.value.forEach((breed) => (breed["isFavorite"] = false));
+      breedsStore.breedData.value = data;
       console.log("Data Fetched", breedsData.value);
     })
     .catch((error) => {
@@ -61,6 +68,12 @@ onMounted(() => {
   getBreedsArray();
 });
 
+const favPageTrigger = () => {
+  breedsStore.favBreeds.value = breedsData.value.filter(
+    (breed) => breed["name"] == true
+  );
+  console.log(breedsData.value);
+};
 const breedsArray = computed(() =>
   searchValue.value
     ? breedsData.value.filter((breed) =>

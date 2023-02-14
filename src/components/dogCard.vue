@@ -10,9 +10,9 @@
       <p class="text-gray-700 text-base">
         {{ breed.temperament }}
       </p>
-      <div @click="isFavorite = !isFavorite">
+      <div @click="breed.isFavorite = !breed.isFavorite">
         <svg
-          v-if="isFavorite"
+          v-if="breed.isFavorite"
           height="20px"
           width="20px"
           version="1.1"
@@ -37,7 +37,7 @@
           />
         </svg>
         <svg
-          v-else="!isFavorite"
+          v-else="!breed.isFavorite"
           fill="#000000"
           height="20px"
           width="20px"
