@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-white md:container md:mx-auto w-10">
+  <div class="bg-white container mx-auto max-w-4xl max-h-4xl">
     <ul class="flex flex-wrap p-2 justify-center bg-black text-white">
       <li class="p-2">
-        <a href=""> Breed Search </a>
+        <RouterLink to="/"> Breed Search </RouterLink>
       </li>
       <li class="p-2">
-        <a href=""> Favorites </a>
+        <RouterLink to="/favorites"> Favorites </RouterLink>
       </li>
     </ul>
 
@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="grid lg:grid-cols-4 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-3 gap-8">
       <dogCard v-for="breed in breedsArray" :key="breed.id" :breed="breed" />
     </div>
   </div>
@@ -39,6 +39,7 @@
 <script setup>
 import dogCard from "../components/dogCard.vue";
 import { ref, onMounted, computed } from "vue";
+import { RouterLink } from "vue-router";
 
 let URL = "https://api.thedogapi.com/v1/breeds";
 const searchValue = ref("");
