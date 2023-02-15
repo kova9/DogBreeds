@@ -2,12 +2,10 @@
   <div class="bg-white container mx-auto max-w-4xl max-h-4xl">
     <ul class="flex flex-wrap p-2 justify-center bg-black text-white">
       <li class="p-2">
-        <RouterLink to="/" @click="favPageTrigger">Breed Search</RouterLink>
+        <RouterLink to="/">Breed Search</RouterLink>
       </li>
       <li class="p-2">
-        <RouterLink to="/favorites" @click="favPageTrigger"
-          >Favorites</RouterLink
-        >
+        <RouterLink to="/favorites">Favorites</RouterLink>
       </li>
     </ul>
 
@@ -68,12 +66,12 @@ onMounted(() => {
   getBreedsArray();
 });
 
-const favPageTrigger = () => {
-  breedsStore.favBreeds.value = breedsData.value.filter(
-    (breed) => breed["name"] == true
-  );
-  console.log(breedsData.value);
-};
+// const favPageTrigger = () => {
+//   breedsStore.favBreeds.value = breedsData.value.filter(
+//     (breed) => breed["name"] == true
+//   );
+//   console.log(breedsData.value);
+// };
 const breedsArray = computed(() =>
   searchValue.value
     ? breedsData.value.filter((breed) =>

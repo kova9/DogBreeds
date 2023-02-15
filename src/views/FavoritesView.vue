@@ -2,12 +2,10 @@
   <div class="bg-white container mx-auto max-w-4xl max-h-4xl">
     <ul class="flex flex-wrap p-2 justify-center bg-black text-white">
       <li class="p-2">
-        <RouterLink to="/" @click="favPageTrigger">Breed Search</RouterLink>
+        <RouterLink to="/">Breed Search</RouterLink>
       </li>
       <li class="p-2">
-        <RouterLink to="/favorites" @click="favPageTrigger"
-          >Favorites</RouterLink
-        >
+        <RouterLink to="/favorites">Favorites</RouterLink>
       </li>
     </ul>
 
@@ -33,7 +31,11 @@
       </div>
     </div>
     <div class="grid grid-cols-3 gap-8">
-      <dogCard v-for="breed in favBreeds" :key="breed.id" :breed="breed" />
+      <dogCard
+        v-for="breed in breedsStore.favBreeds"
+        :key="breed.id"
+        :breed="breed"
+      />
     </div>
   </div>
 </template>
@@ -49,20 +51,6 @@ const searchValue = ref("");
 let breedsData = ref([]);
 let breedsStore = useBreedStore();
 let favBreeds = breedsStore.favBreeds.value;
-console.log(favBreeds);
-// Fetching API Data
-const favPageTrigger = () => {
-  breedsStore.favBreeds.value = breedsData.value.filter(
-    (breed) => breed["name"] == true
-  );
-};
 
-const breedsArray = computed(() =>
-  searchValue.value
-    ? breedsData.value.filter((breed) =>
-        breed.name.toLowerCase().includes(searchValue.value.toLowerCase())
-      )
-    : breedsData.value
-);
 let isVisible = ref(false);
 </script>

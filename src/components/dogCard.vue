@@ -10,7 +10,7 @@
       <p class="text-gray-700 text-base">
         {{ breed.temperament }}
       </p>
-      <div @click="breed.isFavorite = !breed.isFavorite">
+      <div @click="favTrigger">
         <svg
           v-if="breed.isFavorite"
           height="20px"
@@ -72,8 +72,13 @@
 <script setup>
 import { ref } from "vue";
 import { useBreedStore } from "../stores/counter";
+let breedStore = useBreedStore();
 let isFavorite = ref(false);
 let props = defineProps({
   breed: Object,
 });
+const favTrigger = () => {
+  props.breed.isFavorite = !props.breed.isFavorite;
+  breedStore.favBreeds.push(props.breed);
+};
 </script>
