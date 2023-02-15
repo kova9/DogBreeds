@@ -1,5 +1,10 @@
 # DogAPIFilter
-
+!!! Not finished !!! 
+todo
+1.Favorite Page (Unfavorite)
+2.BG color fix 
+3.State manage of Favorite Data 
+      
 Filtering thedogapi breeds
 
 1. Pull the Repo
