@@ -1,9 +1,9 @@
 # DogAPIFilter
 !!! Not finished !!! 
 todo: 
-Favorite Page (Unfavorite)
-BG color fix 
-State manage of Favorite Data 
+\n Favorite Page (Unfavorite)
+\n BG color fix 
+\n State manage of Favorite Data 
       
 Filtering thedogapi breeds
 
