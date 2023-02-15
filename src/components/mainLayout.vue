@@ -24,9 +24,6 @@
             id="exampleSearch2"
             placeholder="Type query"
           />
-          <div class="flex flex-wrap">
-            <div>Test: {{ searchValue }}</div>
-          </div>
         </div>
       </div>
     </div>
