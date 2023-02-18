@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-import dogCard from "../components/dogCard.vue";
 import favoriteBreeds from "../components/favoriteBreeds.vue";
 import { ref, onMounted, computed } from "vue";
 import { RouterLink } from "vue-router";
