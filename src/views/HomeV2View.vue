@@ -26,10 +26,8 @@ import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 import { useBreedStore } from "../stores/counter";
 
-let URL = "https://api.thedogapi.com/v1/breeds";
 const searchValue = ref("");
 let breedsData = ref([]);
-let breedsStore = useBreedStore();
 
 const breedsArray = computed(() =>
   searchValue.value

@@ -43,7 +43,6 @@ let URL = "https://api.thedogapi.com/v1/breeds";
 const searchValue = ref("");
 let breedsData = ref([]);
 let breedsStore = useBreedStore();
-let favBreeds = breedsStore.favBreeds.value;
 
 // Fetching API Data
 function getBreedsArray() {
@@ -63,12 +62,6 @@ onMounted(() => {
   getBreedsArray();
 });
 
-// const favPageTrigger = () => {
-//   breedsStore.favBreeds.value = breedsData.value.filter(
-//     (breed) => breed["name"] == true
-//   );
-//   console.log(breedsData.value);
-// };
 const breedsArray = computed(() =>
   searchValue.value
     ? breedsData.value.filter((breed) =>
@@ -76,5 +69,4 @@ const breedsArray = computed(() =>
       )
     : breedsData.value
 );
-let isVisible = ref(false);
 </script>

@@ -20,7 +20,6 @@
 <script setup>
 import dogCard from "../components/dogCard.vue";
 import { ref, onMounted, computed } from "vue";
-import { RouterLink } from "vue-router";
 import { useBreedStore } from "../stores/counter";
 
 let URL = "https://api.thedogapi.com/v1/breeds";
@@ -47,12 +46,6 @@ onMounted(() => {
   getBreedsArray();
 });
 
-// const favPageTrigger = () => {
-//   breedsStore.favBreeds.value = breedsData.value.filter(
-//     (breed) => breed["name"] == true
-//   );
-//   console.log(breedsData.value);
-// };
 const breedsArray = computed(() =>
   searchValue.value
     ? breedsData.value.filter((breed) =>
@@ -60,5 +53,4 @@ const breedsArray = computed(() =>
       )
     : breedsData.value
 );
-let isVisible = ref(false);
 </script>
