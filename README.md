@@ -1,8 +1,9 @@
 # DogAPIFilter
-!!! Not finished !!! 
-todo
-1.Favorite Page (Unfavorite)
 
+
+!!! Not finished !!! 
+1.Favorite Page (Unfavorite) -remove from FavPage
+!!! Not finished !!!
       
 Filtering thedogapi breeds
 
