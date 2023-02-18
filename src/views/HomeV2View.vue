@@ -14,16 +14,15 @@
         </li>
       </ul>
       <div>
-        <favoriteBreeds />
+        <breedSearch />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import dogCard from "../components/dogCard.vue";
-import favoriteBreeds from "../components/favoriteBreeds.vue";
-import { ref, onMounted, computed } from "vue";
+import breedSearch from "../components/breedSearch.vue";
+import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 import { useBreedStore } from "../stores/counter";
 
@@ -31,7 +30,6 @@ let URL = "https://api.thedogapi.com/v1/breeds";
 const searchValue = ref("");
 let breedsData = ref([]);
 let breedsStore = useBreedStore();
-let favBreeds = breedsStore.favBreeds.value;
 
 const breedsArray = computed(() =>
   searchValue.value
@@ -40,5 +38,4 @@ const breedsArray = computed(() =>
       )
     : breedsData.value
 );
-let isVisible = ref(false);
 </script>

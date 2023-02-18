@@ -1,7 +1,7 @@
 <template>
-  <div class="max-w-xs rounded overflow-hidden shadow-lg bg-lime-50">
+  <div class="max-w-xs rounded overflow-hidden shadow-lg bg-stone-200">
     <img
-      class="w-full max-h-48 object-top object-cover"
+      class="w-full h-48 max-h-48 object-top object-cover"
       alt="Sunset in the mountains"
       v-bind:src="breed.image.url"
     />
@@ -73,7 +73,7 @@
 import { ref } from "vue";
 import { useBreedStore } from "../stores/counter";
 let breedStore = useBreedStore();
-let isFavorite = ref(false);
+
 let props = defineProps({
   breed: Object,
 });
