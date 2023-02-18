@@ -2,7 +2,7 @@
 !!! Not finished !!! 
 todo
 1.Favorite Page (Unfavorite)
-2.State manage of Favorite Data 
+
       
 Filtering thedogapi breeds
 
