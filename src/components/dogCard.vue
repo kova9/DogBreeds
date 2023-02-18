@@ -79,6 +79,8 @@ let props = defineProps({
 });
 const favTrigger = () => {
   props.breed.isFavorite = !props.breed.isFavorite;
-  breedStore.favBreeds.push(props.breed);
+  if (!breedStore.favBreeds.includes(props.breed)) {
+    breedStore.favBreeds.push(props.breed);
+  }
 };
 </script>

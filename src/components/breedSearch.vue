@@ -13,7 +13,11 @@
     </div>
   </div>
   <div class="grid grid-cols-3 gap-8">
-    <dogCard v-for="breed in breedsArray" :key="breed.id" :breed="breed" />
+    <dogCard
+      v-for="breed in breedsStore.breedData"
+      :key="breed.id"
+      :breed="breed"
+    />
   </div>
 </template>
 
@@ -26,7 +30,6 @@ let URL = "https://api.thedogapi.com/v1/breeds";
 const searchValue = ref("");
 let breedsData = ref([]);
 let breedsStore = useBreedStore();
-let favBreeds = breedsStore.favBreeds.value;
 
 // Fetching API Data
 function getBreedsArray() {
@@ -35,7 +38,7 @@ function getBreedsArray() {
     .then((data) => {
       breedsData.value = data;
       breedsData.value.forEach((breed) => (breed["isFavorite"] = false));
-      breedsStore.breedData.value = data;
+      breedsStore.breedData = data;
       console.log("Data Fetched", breedsData.value);
     })
     .catch((error) => {
@@ -43,7 +46,7 @@ function getBreedsArray() {
     });
 }
 onMounted(() => {
-  getBreedsArray();
+  if (breedsStore.breedData.length <= 0) getBreedsArray();
 });
 
 const breedsArray = computed(() =>
