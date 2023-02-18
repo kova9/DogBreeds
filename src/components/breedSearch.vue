@@ -13,11 +13,7 @@
     </div>
   </div>
   <div class="grid grid-cols-3 gap-8">
-    <dogCard
-      v-for="breed in breedsStore.breedData"
-      :key="breed.id"
-      :breed="breed"
-    />
+    <dogCard v-for="breed in breedsArray" :key="breed.id" :breed="breed" />
   </div>
 </template>
 
@@ -51,9 +47,9 @@ onMounted(() => {
 
 const breedsArray = computed(() =>
   searchValue.value
-    ? breedsData.value.filter((breed) =>
+    ? breedsStore.breedData.filter((breed) =>
         breed.name.toLowerCase().includes(searchValue.value.toLowerCase())
       )
-    : breedsData.value
+    : breedsStore.breedData
 );
 </script>
