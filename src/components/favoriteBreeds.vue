@@ -13,19 +13,16 @@
     </div>
   </div>
   <div class="grid grid-cols-3 gap-8">
-    <dogCard
-      v-for="breed in breedsStore.favBreeds"
-      :key="breed.id"
-      :breed="breed"
-    />
+    <dogCard v-for="breed in breedArray" :key="breed.id" :breed="breed" />
   </div>
 </template>
 
 <script setup>
 import dogCard from "../components/dogCard.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useBreedStore } from "../stores/counter";
 
 const searchValue = ref("");
 let breedsStore = useBreedStore();
+const breedArray = computed(() => breedsStore.favBreeds);
 </script>
