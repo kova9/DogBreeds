@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+
 import FavoritesView from "../views/FavoritesView.vue";
 import HomeV2View from "../views/HomeV2View.vue";
 
@@ -15,11 +15,6 @@ const router = createRouter({
       path: "/favorites",
       name: "favorites",
       component: FavoritesView,
-    },
-    {
-      path: "/v1",
-      name: "homeV1",
-      component: HomeView,
     },
   ],
 });
