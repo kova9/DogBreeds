@@ -78,14 +78,6 @@ let props = defineProps({
   breed: Object,
 });
 const favTrigger = () => {
-  // if (!breedStore.favBreeds.includes(props.breed)) {
-  //   breedStore.favBreeds.push(props.breed);
-  // } else {
-  //   breedStore.favBreeds = breedStore.favBreeds.filter((breed) => {
-  //     breed.id == props.breed.id;
-  //     console.log(breedStore.favBreeds);
-  //   });
-  // }
   props.breed.isFavorite = !props.breed.isFavorite;
 };
 </script>
