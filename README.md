@@ -2,8 +2,7 @@
 
 
 !!! Not finished !!! 
-1.Favorite Page (Unfavorite) -remove from FavPage
-!!! Not finished !!!
+
       
 Filtering thedogapi breeds
 
