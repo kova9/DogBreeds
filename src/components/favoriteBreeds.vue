@@ -24,5 +24,7 @@ import { useBreedStore } from "../stores/counter";
 
 const searchValue = ref("");
 let breedsStore = useBreedStore();
-const breedArray = computed(() => breedsStore.favBreeds);
+const breedArray = computed(() =>
+  breedsStore.breedData.filter((breed) => breed.isFavorite === true)
+);
 </script>
