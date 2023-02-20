@@ -22,18 +22,5 @@
 
 <script setup>
 import breedSearch from "../components/breedSearch.vue";
-import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
-import { useBreedStore } from "../stores/counter";
-
-const searchValue = ref("");
-let breedsData = ref([]);
-
-const breedsArray = computed(() =>
-  searchValue.value
-    ? breedsData.value.filter((breed) =>
-        breed.name.toLowerCase().includes(searchValue.value.toLowerCase())
-      )
-    : breedsData.value
-);
 </script>

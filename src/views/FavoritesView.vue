@@ -22,22 +22,5 @@
 
 <script setup>
 import favoriteBreeds from "../components/favoriteBreeds.vue";
-import { ref, onMounted, computed } from "vue";
 import { RouterLink } from "vue-router";
-import { useBreedStore } from "../stores/counter";
-
-let URL = "https://api.thedogapi.com/v1/breeds";
-const searchValue = ref("");
-let breedsData = ref([]);
-let breedsStore = useBreedStore();
-let favBreeds = breedsStore.favBreeds.value;
-
-const breedsArray = computed(() =>
-  searchValue.value
-    ? breedsData.value.filter((breed) =>
-        breed.name.toLowerCase().includes(searchValue.value.toLowerCase())
-      )
-    : breedsData.value
-);
-let isVisible = ref(false);
 </script>

@@ -70,10 +70,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useBreedStore } from "../stores/counter";
-let breedStore = useBreedStore();
-
 let props = defineProps({
   breed: Object,
 });
